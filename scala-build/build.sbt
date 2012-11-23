@@ -125,13 +125,21 @@ EclipseKeys.createSrc := EclipseCreateSrc.Default + EclipseCreateSrc.Resource
 // resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 // resolvers += "Local Maven Repository" at "file://"+Path.userHome.absolutePath+"/.m2/repository" 
 // Type of resolvers is: SettingKey[Seq[Resolver]]("resolvers", "The user-defined additional resolvers for automatically managed dependencies.")
+
+// Resolver for ETN repository:
+// resolvers += Resolver.url("art-etn", new URL("http://artifactory.etn/etn"))(Patterns(false, "[organisation]/[module]/[revision]/[artifact]-[revision].[ext]") )
+
+// resolvers += Resolver.url("my-test-repo", new URL("http://artifactory.etn/twinstone"))(Patterns(false, "[organisation]/[module]/[revision]/[artifact]-[revision].[ext]") )     
+
 // *** Overriding default resolvers ***
 // Resolvers does not contain the default resolvers; sbt combines resolvers with some default repositories to form external-resolvers.
 // Therefore, to change or remove the default resolvers, you would need to override external-resolvers instead of resolvers.
 // *** Per-configuration dependencies ***
 // Often a dependency is used by your test code (in src/test/scala, which is compiled by the Test configuration) but not your main code. E.g. only for the Test configuration:
 // libraryDependencies += "org.apache.derby" % "derby" % "10.4.1.3" % "test"
-// Zavislosti lze zobrazit pomoci: show compile:dependency-classpath, show test:dependency-classpath 
+// Zavislosti lze zobrazit pomoci: show compile:dependency-classpath, show test:dependency-classpath
+
+// libraryDependencies += "org.zweistein" % "wbeans-tfs" % "2.0.1"
 
 libraryDependencies += "org.apache.derby" % "derby" % "10.4.1.3"
 

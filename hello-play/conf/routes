@@ -1,5 +1,7 @@
 # Routes
-# This file defines all application routes (Higher priority routes first)
+# This file defines all application routes (Higher priority routes first).
+# Maps HTTP method and URL path to play.api.mvc.Action[play.api.mvc.AnyContent]
+# Certain parts of the URL can be passed to controller methods as arguments.
 # ~~~~
 
 # Home page
@@ -9,4 +11,6 @@ GET     /                           controllers.Application.index
 GET     /hello                      controllers.Application.sayHello
 
 # Map static resources from the /public folder to the /assets URL path
+# Controller controllers.Assets comes from Play API, serves static resources.
+# E.g.: /assets/images/favicon.png
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

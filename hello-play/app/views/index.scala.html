@@ -1,15 +1,22 @@
 @(helloForm: Form[(String,Int,Option[String])])
+<!-- This template accepts helloForm variable of type Form -->
 
 @import helper._
 
-@main(title = "The 'helloworld' application") {
+<!-- Reusing layout (main) page, passing first parameter - title and second parameter -
+HTML content (passed in curly brackets) - to layout template. -->
+@main(title = "Hello Play! application with form example") {
 
-    <h1>Configure your 'Hello world':</h1>
+    <h1>Configure your greetings:</h1>
 
+	<!-- Defining a form using Play's helper.form helper template,
+	passing action and id parameters. -->
     @form(action = routes.Application.sayHello, args = 'id -> "helloform") {
 
         @inputText(
+        	// get name field from the helloForm variable (Form instance) passed to this template
             field = helloForm("name"),
+            // description (label) and example value as a hint for user 
             args = '_label -> "What's your name?", 'placeholder -> "World"
         )
 
@@ -20,6 +27,7 @@
 
         @select(
             field = helloForm("color"),
+            // values and labels for select's options
             options = options(
                 "" -> "Default",
                 "red" -> "Red",

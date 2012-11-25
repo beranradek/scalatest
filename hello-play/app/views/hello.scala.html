@@ -1,5 +1,7 @@
 @(name: String, repeat: Int, color: Option[String])
 
+<!-- Reusing layout (main) page, passing first parameter - title and second parameter -
+HTML content (passed in curly brackets) - to layout template. -->
 @main("Here is the result:") {
 
     <ul style="color: @color.getOrElse("inherited")">

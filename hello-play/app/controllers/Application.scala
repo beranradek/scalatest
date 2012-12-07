@@ -5,25 +5,26 @@ import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import views._
+import com.etnetera.play.tfs._
 
-object Application extends Controller {
+object Application extends Controller with TfsTemplates {
     
   /**
   * Home page
   */
   def index = Action {
-    Ok(html.index(helloForm))
+    Ok(template("hello.tfs"))
   }
   
-  /**
-   * Handles the form submission.
-   */
-  def sayHello = Action { implicit request =>
-    helloForm.bindFromRequest.fold(
-      formWithErrors => BadRequest(html.index(formWithErrors)),
-      {case (name, repeat, color) => Ok(html.hello(name, repeat.toInt, color))}
-    )
-  }
+//  /**
+//   * Handles the form submission.
+//   */
+//  def sayHello = Action { implicit request =>
+//    helloForm.bindFromRequest.fold(
+//      formWithErrors => BadRequest(html.index(formWithErrors)),
+//      {case (name, repeat, color) => Ok(html.hello(name, repeat.toInt, color))}
+//    )
+//  }
   
   val helloForm = Form(
     tuple(

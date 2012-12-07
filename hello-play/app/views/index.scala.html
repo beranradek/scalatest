@@ -1,9 +1,11 @@
 @(helloForm: Form[(String,Int,Option[String])])
+<!-- This template accepts helloForm variable of type Form -->
 
 @import helper._
 
-@main(title = "The 'helloworld' application") {
+<!-- Reusing layout (main) page, passing first parameter - title and second parameter -
+HTML content (passed in curly brackets) - to layout template. -->
+@main(title = "Hello Play! application with form example") {
 
-    <h1>Configure your 'Hello world':</h1>
-
+    <h1>Configure your greetings:</h1>
 }

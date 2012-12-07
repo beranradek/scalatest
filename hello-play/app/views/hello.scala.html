@@ -1,0 +1,16 @@
+@(name: String, repeat: Int, color: Option[String])
+
+<!-- Reusing layout (main) page, passing first parameter - title and second parameter -
+HTML content (passed in curly brackets) - to layout template. -->
+@main("Here is the result:") {
+
+    <ul style="color: @color.getOrElse("inherited")">
+        @for(_ <- 1 to repeat) {
+            <li>Hello @name!</li>
+        }
+    </ul>
+
+    <p class="buttons">
+        <a href="@routes.Application.index">Back to the form</a>
+    </p>
+}

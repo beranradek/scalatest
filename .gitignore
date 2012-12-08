@@ -10,6 +10,7 @@ target/
 .scala_dependencies
 .settings
 .target/
+.worksheet/
 /.metadata/
 /.gradle/
 /.idea/
